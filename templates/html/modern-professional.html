@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Professional CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid white;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .name {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: calc(297mm - 200px);
+        }
+
+        .left-column {
+            width: 40%;
+            background: #f8f9fa;
+            padding: 30px 25px;
+            border-right: 3px solid #667eea;
+        }
+
+        .right-column {
+            width: 60%;
+            padding: 30px;
+            background: white;
+        }
+
+        .section-header {
+            font-size: 18px;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .section-header::before {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #764ba2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            fill: #667eea;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            width: 85%;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #667eea;
+        }
+
+        .education-school {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .education-degree {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .education-year {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .experience-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+
+        .experience-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .experience-period {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .experience-responsibilities {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .experience-responsibilities ul {
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        .experience-responsibilities li {
+            margin-bottom: 5px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .achievement-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .achievement-period {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 13px;
+        }
+
+        .achievement-description {
+            color: #555;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .editable {
+            background: transparent;
+            border: 1px dashed rgba(102,126,234,0.3);
+            padding: 2px;
+            min-height: 1.2em;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .editable:focus {
+            outline: 2px solid rgba(102,126,234,0.5);
+            border: 1px solid rgba(102,126,234,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <img id="profile-photo" class="profile-photo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iNjAiIGZpbGw9IiNkZGQiLz4KPHN2ZyB4PSI0MCIgeT0iMjUiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRIOGE0IDQgMCAwIDAtNCA0djIiPjwvcGF0aD4KPGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT4KPC9zdmc+Cjwvc3ZnPgo=" alt="Profile Photo">
+            <div id="cv-name" class="name editable">JANE SMITH</div>
+            <div id="cv-job-title" class="job-title editable">UX/UI Designer</div>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <div class="section-header">Contact</div>
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span id="cv-email" class="editable">jane.smith@email.com</span>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span id="cv-phone" class="editable">+1-555-987-6543</span>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span id="cv-address" class="editable">456 Design Ave, Creative City</span>
+                </div>
+
+                <div class="section-header" style="margin-top: 25px;">Skills</div>
+                <div class="skill-item">
+                    <div class="skill-name"><span id="cv-hard-skill-1" class="editable">Adobe Creative Suite</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span id="cv-hard-skill-2" class="editable">Figma & Sketch</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span id="cv-hard-skill-3" class="editable">HTML & CSS</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span id="cv-hard-skill-4" class="editable">User Research</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="section-header" style="margin-top: 25px;">Education</div>
+                <div class="education-item">
+                    <div class="education-school"><span id="cv-education-1-school" class="editable">Design Institute</span></div>
+                    <div class="education-degree"><span id="cv-education-1-degree" class="editable">Bachelor of Design</span></div>
+                    <div class="education-year"><span id="cv-education-1-year" class="editable">2019</span></div>
+                </div>
+                <div class="education-item">
+                    <div class="education-school"><span id="cv-education-2-school" class="editable">UX Academy</span></div>
+                    <div class="education-degree"><span id="cv-education-2-degree" class="editable">UX Design Certificate</span></div>
+                    <div class="education-year"><span id="cv-education-2-year" class="editable">2020</span></div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <div class="section-header">About Me</div>
+                <div id="cv-about-me" class="about-text editable">
+                    Creative UX/UI designer with 4+ years of experience creating user-centered digital experiences. Passionate about solving complex problems through intuitive design and user research. Skilled in the complete design process from wireframing to prototyping and user testing.
+                </div>
+
+                <div class="section-header">Professional Experience</div>
+                <div class="experience-item">
+                    <div class="experience-title"><span id="cv-experience-1-title" class="editable">Creative Agency | Senior UX Designer</span></div>
+                    <div class="experience-period"><span id="cv-experience-1-period" class="editable">2022 – Present</span></div>
+                    <div class="experience-responsibilities">
+                        <strong>Key responsibilities:</strong>
+                        <ul>
+                            <li><span id="cv-experience-1-resp-1" class="editable">Lead design for mobile and web applications</span></li>
+                            <li><span id="cv-experience-1-resp-2" class="editable">Conduct user research and usability testing</span></li>
+                            <li><span id="cv-experience-1-resp-3" class="editable">Collaborate with development teams</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-title"><span id="cv-experience-2-title" class="editable">Tech Startup | UI Designer</span></div>
+                    <div class="experience-period"><span id="cv-experience-2-period" class="editable">2020 – 2022</span></div>
+                    <div class="experience-responsibilities">
+                        <strong>Key responsibilities:</strong>
+                        <ul>
+                            <li><span id="cv-experience-2-resp-1" class="editable">Designed user interfaces for SaaS products</span></li>
+                            <li><span id="cv-experience-2-resp-2" class="editable">Created design systems and style guides</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-header">Achievements</div>
+                <div class="achievement-item">
+                    <div class="achievement-period">2023 – 2024</div>
+                    <div id="cv-achievement-1" class="achievement-description editable">Increased user engagement by 35% through redesign of mobile app interface.</div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-period">2022 – 2023</div>
+                    <div id="cv-achievement-2" class="achievement-description editable">Led design team in winning 'Best UX Design' award at Tech Conference 2023.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

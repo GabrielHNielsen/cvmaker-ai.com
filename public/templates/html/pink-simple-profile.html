@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Simple Profile Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .left-column {
+            width: 38%;
+            background: #B85555;
+            color: white;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .right-column {
+            width: 62%;
+            background: white;
+            padding: 30px 40px;
+            color: #333;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            margin-left: 15px;
+            border: 3px solid white;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .main-header {
+            text-align: left;
+            margin-bottom: 30px;
+            padding-top: 0px;
+        }
+
+        .name {
+            font-size: 44px;
+            font-weight: bold;
+            color: #B85555;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            color: #B85555;
+            font-weight: 400;
+        }
+
+        .section-header {
+            font-size: 20px;
+            color: #B85555;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #B85555;
+            padding-bottom: 3px;
+        }
+
+        .left-section-header {
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 12px;
+            margin-top: 25px;
+            border-bottom: 2px solid white;
+            padding-bottom: 4px;
+            text-align: left;
+        }
+
+        .left-section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            fill: white;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .skill-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: white;
+            font-size: 16px;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-school {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .education-degree {
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .education-year {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-header {
+            margin-bottom: 10px;
+        }
+
+        .experience-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .experience-period {
+            font-size: 13px;
+            color: #B85555;
+            font-style: italic;
+        }
+
+        .experience-responsibilities {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .experience-responsibilities ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .experience-responsibilities li {
+            margin-bottom: 5px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .achievement-item {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .achievement-period {
+            font-weight: bold;
+            color: #B85555;
+            display: inline-block;
+            width: 100px;
+        }
+
+        .achievement-description {
+            display: inline-block;
+            color: #333;
+        }
+
+        /* Editable fields styling */
+        .editable {
+            background: transparent;
+            border: 1px dashed rgba(255,255,255,0.3);
+            padding: 2px;
+            min-height: 1.2em;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .editable:focus {
+            outline: 2px solid rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .right-column .editable {
+            border: 1px dashed rgba(184,85,85,0.3);
+        }
+
+        .right-column .editable:focus {
+            outline: 2px solid rgba(184,85,85,0.5);
+            border: 1px solid rgba(184,85,85,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <img id="profile-photo" class="profile-photo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iOTAiIGZpbGw9IiNkZGQiLz4KPHN2ZyB4PSI2MCIgeT0iNDAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRIOGE0IDQgMCAwIDAtNCA0djIiPjwvcGF0aD4KPGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT4KPC9zdmc+Cjwvc3ZnPgo=" alt="Profile Photo">
+            
+            <div class="left-section-header">My Contact</div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span id="cv-email" class="editable">hello@reallygreatsite.com</span>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span id="cv-phone" class="editable">+123-456-7890</span>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span id="cv-address" class="editable">123 Anywhere St., Any City</span>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span id="cv-website" class="editable">www.reallygreatsite.com</span>
+            </div>
+
+            <div class="left-section-header">Hard Skill</div>
+            <ul class="skill-list">
+                <li><span id="cv-hard-skill-1" class="editable">Financial modeling and reporting</span></li>
+                <li><span id="cv-hard-skill-2" class="editable">Data mining and analysis</span></li>
+                <li><span id="cv-hard-skill-3" class="editable">Financial accounting</span></li>
+                <li><span id="cv-hard-skill-4" class="editable">Business valuation</span></li>
+                <li><span id="cv-hard-skill-5" class="editable">Advanced SAS proficiency</span></li>
+            </ul>
+
+            <div class="left-section-header">Soft Skill</div>
+            <ul class="skill-list">
+                <li><span id="cv-soft-skill-1" class="editable">Observation</span></li>
+                <li><span id="cv-soft-skill-2" class="editable">Decision making</span></li>
+                <li><span id="cv-soft-skill-3" class="editable">Communication</span></li>
+                <li><span id="cv-soft-skill-4" class="editable">Multi-tasking</span></li>
+            </ul>
+
+            <div class="left-section-header">Education Background</div>
+            <div class="education-item">
+                <div class="education-school"><span id="cv-education-1-school" class="editable">Borcelle Business School</span></div>
+                <div class="education-degree"><span id="cv-education-1-degree" class="editable">Masters in Accounting</span></div>
+                <div class="education-year"><span id="cv-education-1-year" class="editable">Completed in 2016</span></div>
+            </div>
+            <div class="education-item">
+                <div class="education-school"><span id="cv-education-2-school" class="editable">Larana Business School</span></div>
+                <div class="education-degree"><span id="cv-education-2-degree" class="editable">Certificate in Financial Management, Financial Analysis, and Public Budgeting</span></div>
+                <div class="education-year"><span id="cv-education-2-year" class="editable">Completed in 2014</span></div>
+            </div>
+            <div class="education-item">
+                <div class="education-school"><span id="cv-education-3-school" class="editable">Borcelle Business School</span></div>
+                <div class="education-degree"><span id="cv-education-3-degree" class="editable">Bachelor of Economics, Major in Finance, Minor in Data Analytics</span></div>
+                <div class="education-year"><span id="cv-education-3-year" class="editable">Completed in 2012</span></div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="main-header">
+                <div id="cv-name" class="name editable">HOWARD ONG</div>
+                <div id="cv-job-title" class="job-title editable">Financial Analyst</div>
+            </div>
+
+            <div class="section-header">About Me</div>
+            <div id="cv-about-me" class="about-text editable">
+                Dedicated and detail-oriented Financial Analyst with 10 years of experience. Eager to apply proven-budget maximization skills for Bank of Brocelle in monitoring, maintaining, and completing client billing and reconciliations. Special interest in achieving the millennial market and helping with retirement and general financial planning.
+            </div>
+
+            <div class="section-header">Professional Experience</div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title"><span id="cv-experience-1-title" class="editable">Ginyard International Co. | Financial Analyst</span></div>
+                    <div class="experience-period"><span id="cv-experience-1-period" class="editable">2020 – Present</span></div>
+                </div>
+                <div class="experience-responsibilities">
+                    <strong>Key responsibilities:</strong>
+                    <ul>
+                        <li><span id="cv-experience-1-resp-1" class="editable">Analyze current and past financial data</span></li>
+                        <li><span id="cv-experience-1-resp-2" class="editable">Look at recent financial performance and identify trends</span></li>
+                        <li><span id="cv-experience-1-resp-3" class="editable">Prepare reports on the above information and communicate the insights of these reports to the broader business</span></li>
+                        <li><span id="cv-experience-1-resp-4" class="editable">Consult with the management team to develop long-term commercial plans</span></li>
+                        <li><span id="cv-experience-1-resp-5" class="editable">Suggest budgets and improvements based on the above information</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title"><span id="cv-experience-2-title" class="editable">Ingoude Company | Junior/Investment Analyst</span></div>
+                    <div class="experience-period"><span id="cv-experience-2-period" class="editable">2015 – 2020</span></div>
+                </div>
+                <div class="experience-responsibilities">
+                    <strong>Key responsibilities:</strong>
+                    <ul>
+                        <li><span id="cv-experience-2-resp-1" class="editable">Looked at financial performance and identified trends</span></li>
+                        <li><span id="cv-experience-2-resp-2" class="editable">Explored various investment opportunities</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title"><span id="cv-experience-3-title" class="editable">Timmerman Industries | Financial Analyst Intern</span></div>
+                    <div class="experience-period"><span id="cv-experience-3-period" class="editable">2012 – 2015</span></div>
+                </div>
+                <div class="experience-responsibilities">
+                    <strong>Key responsibilities:</strong>
+                    <ul>
+                        <li><span id="cv-experience-3-resp-1" class="editable">Analyzed financial data</span></li>
+                        <li><span id="cv-experience-3-resp-2" class="editable">Observed financial performance and identified trends</span></li>
+                        <li><span id="cv-experience-3-resp-3" class="editable">Prepared reports on the above information and reported the insights.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-header">Achievements</div>
+            <div class="achievement-item">
+                <span class="achievement-period">2013 – 2015</span>
+                <span id="cv-achievement-1" class="achievement-description editable">Reduced the production cost by 20% in the second year of internship.</span>
+            </div>
+            <div class="achievement-item">
+                <span class="achievement-period">2015 – 2020</span>
+                <span id="cv-achievement-2" class="achievement-description editable">2015 – 2020 Managed five projects worth over $100million.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="cv-data-filler.js"></script>
+    <script>
+        // Make CVDataFiller available globally
+        window.CVDataFiller = CVDataFiller;
+        
+        // Example usage - uncomment to test
+        // const filler = new CVDataFiller();
+        // const sampleData = filler.generateSampleData();
+        // filler.fillCV(sampleData);
+    </script>
+</body>
+</html> 

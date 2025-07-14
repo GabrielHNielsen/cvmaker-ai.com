@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Gabriel Helk Nielsen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f4f7fa;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .cv-container {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      background: #fff;
+    }
+
+    .cv-sidebar {
+      width: 300px;
+      background: linear-gradient(135deg, #2C5282 60%, #4299E1 100%);
+      color: #fff;
+      padding: 48px 32px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cv-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      border: 4px solid #fff;
+      margin-bottom: 32px;
+    }
+
+    .cv-section {
+      margin-bottom: 36px;
+      width: 100%;
+    }
+
+    .cv-section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .cv-main {
+      flex: 1;
+      padding: 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .cv-header {
+      margin-bottom: 32px;
+    }
+
+    .cv-name {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #2C5282;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .cv-title {
+      font-size: 1.2rem;
+      color: #4299E1;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .cv-divider {
+      height: 2px;
+      background: linear-gradient(90deg, #2C5282 0%, #4299E1 100%);
+      border: none;
+      margin: 24px 0;
+    }
+
+    .cv-content-section {
+      margin-bottom: 32px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 16px;
+    }
+
+    .cv-content-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2C5282;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cv-list li {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .cv-experience-item,
+    .cv-education-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 12px;
+    }
+
+    .cv-experience-title,
+    .cv-education-title {
+      font-weight: 700;
+      color: #2C5282;
+      font-size: 1.05rem;
+    }
+
+    .cv-experience-period,
+    .cv-education-period {
+      font-size: 0.95rem;
+      color: #4299E1;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
+    .cv-skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cv-skill {
+      background: #4299E1;
+      color: #fff;
+      border-radius: 12px;
+      padding: 4px 14px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .cv-container {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+        min-height: 0;
+      }
+      .cv-main, .cv-sidebar {
+        padding: 24px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <div class="cv-sidebar">
+      <div class="cv-photo"></div>
+      <div class="cv-section">
+        <div class="cv-section-title">Kontakt</div>
+        <ul class="cv-list">
+          <li id="cv-email">gabriel.helk.nielsen@outlook.dk</li>
+          <li id="cv-phone">+45 28 34 12 76</li>
+          <li id="cv-address">Rosenlundsvej 42, 5000 Odense</li>
+        </ul>
+      </div>
+      <div class="cv-section">
+        <div class="cv-section-title">Færdigheder</div>
+        <div class="cv-skills-list">
+          <span class="cv-skill" id="cv-skills-hard">HTML</span>
+          <span class="cv-skill">CSS</span>
+          <span class="cv-skill">JavaScript</span>
+          <span class="cv-skill">React</span>
+          <span class="cv-skill" id="cv-skills-soft">Teamwork</span>
+          <span class="cv-skill">Kommunikation</span>
+          <span class="cv-skill">Problemløsning</span>
+        </div>
+      </div>
+    </div>
+    <div class="cv-main">
+      <div class="cv-header">
+        <div class="cv-name" id="cv-name">Gabriel Helk Nielsen</div>
+        <div class="cv-title" id="cv-job-title">Frontend Udvikler</div>
+      </div>
+
+      <div class="cv-content-section" id="cv-about-me">
+        <div class="cv-content-title">Om mig</div>
+        <p>Passioneret frontend-udvikler med øje for detaljer og brugeroplevelse. Jeg elsker at skabe intuitive, responsive og æstetiske interfaces der virker – hver gang.</p>
+      </div>
+
+      <div class="cv-content-section">
+        <div class="cv-content-title">Erhvervserfaring</div>
+
+        <div class="cv-experience-item">
+          <div class="cv-experience-title" id="cv-experience-1-job-title">Frontend Developer</div>
+          <div class="cv-experience-period">2022 – 2024</div>
+          <div id="cv-experience-1-company"><strong>Webify ApS</strong></div>
+          <div id="cv-experience-1-responsibilities">
+            <ul class="cv-list">
+              <li>Byggede brugerflader i React + Tailwind</li>
+              <li>Forbedrede performance med 45%</li>
+              <li>Indgik i SCRUM-teams og kundedialog</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-experience-item">
+          <div class="cv-experience-title">Junior Webudvikler</div>
+          <div class="cv-experience-period">2020 – 2022</div>
+          <div><strong>DigitalWorks</strong></div>
+          <ul class="cv-list">
+            <li>Designede mobile-first UI i Figma</li>
+            <li>Implementerede over 30 landing pages</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-content-section">
+        <div class="cv-content-title">Uddannelse</div>
+
+        <div class="cv-education-item">
+          <div class="cv-education-title" id="cv-education-1-degree">Bachelor i Webudvikling</div>
+          <div class="cv-education-period">2017 – 2020</div>
+          <div id="cv-education-1-university"><strong>UCL Erhvervsakademi</strong></div>
+          <div id="cv-education-1-courses">Kurser: Frontend, UX, JavaScript, PHP</div>
+        </div>
+
+        <div class="cv-education-item">
+          <div class="cv-education-title">HTX – Teknologi & Design</div>
+          <div class="cv-education-period">2014 – 2017</div>
+          <div><strong>Odense Tekniske Gymnasium</strong></div>
+        </div>
+      </div>
+
+      <div class="cv-content-section">
+        <div class="cv-content-title">Præstationer</div>
+        <ul class="cv-list" id="cv-achievements">
+          <li>Vandt 1. plads i Coding Cup 2023</li>
+          <li>Freelance-projekt omtalt i TechCrunch</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neutral Professional CV</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .resume-container { width: 210mm; height: 297mm; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); padding: 40px; }
+        .header { display: flex; align-items: center; gap: 30px; border-bottom: 2px solid #8B9467; padding-bottom: 25px; margin-bottom: 30px; }
+        .profile-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; background: #ddd; border: 3px solid #8B9467; }
+        .header-text { flex: 1; }
+        .name { font-size: 34px; font-weight: bold; color: #8B9467; margin-bottom: 8px; }
+        .job-title { font-size: 19px; color: #666; margin-bottom: 15px; }
+        .contact-row { display: flex; gap: 25px; font-size: 14px; color: #555; }
+        .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+        .section-header { font-size: 18px; color: #8B9467; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid #8B9467; padding-bottom: 5px; }
+        .section { margin-bottom: 25px; }
+        .about-text { font-size: 14px; line-height: 1.6; color: #555; text-align: justify; grid-column: 1 / -1; margin-bottom: 30px; }
+        .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .skill-item { font-size: 14px; color: #555; padding: 8px 12px; background: #f8f9f0; border-left: 3px solid #8B9467; }
+        .edu-item, .exp-item { margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .edu-item:last-child, .exp-item:last-child { border-bottom: none; }
+        .item-title { font-size: 15px; font-weight: bold; color: #333; margin-bottom: 4px; }
+        .item-subtitle { font-size: 14px; color: #666; margin-bottom: 4px; }
+        .item-date { font-size: 12px; color: #999; margin-bottom: 8px; }
+        .resp-list { font-size: 13px; color: #555; }
+        .resp-list ul { margin-left: 15px; margin-top: 5px; }
+        .resp-list li { margin-bottom: 3px; line-height: 1.4; }
+        .achievement { margin-bottom: 12px; font-size: 14px; color: #555; display: flex; gap: 15px; }
+        .ach-date { font-weight: bold; color: #8B9467; min-width: 80px; }
+        .editable { background: transparent; border: 1px dashed rgba(139,148,103,0.3); padding: 2px; min-height: 1.2em; display: inline-block; width: 100%; }
+        .editable:focus { outline: 2px solid rgba(139,148,103,0.5); border: 1px solid rgba(139,148,103,0.5); }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <img id="profile-photo" class="profile-photo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEwIiBoZWlnaHQ9IjExMCIgdmlld0JveD0iMCAwIDExMCAxMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIiByeD0iNTUiIGZpbGw9IiNkZGQiLz4KPHN2ZyB4PSIzNyIgeT0iMjMiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRIOGE0IDQgMCAwIDAtNCA0djIiPjwvcGF0aD4KPGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT4KPC9zdmc+Cjwvc3ZnPgo=" alt="Profile Photo">
+            <div class="header-text">
+                <div id="cv-name" class="name editable">SARAH WILSON</div>
+                <div id="cv-job-title" class="job-title editable">Sales Representative</div>
+                <div class="contact-row">
+                    <span id="cv-email" class="editable">sarah.wilson@email.com</span>
+                    <span id="cv-phone" class="editable">+1-555-789-0123</span>
+                    <span id="cv-address" class="editable">654 Sales Drive, Commerce City</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">About Me</div>
+            <div id="cv-about-me" class="about-text editable">
+                Dynamic sales representative with 7+ years of experience in B2B and B2C sales. Proven track record of exceeding sales targets and building strong client relationships. Skilled in consultative selling, negotiations, and customer retention strategies that drive revenue growth.
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div>
+                <div class="section">
+                    <div class="section-header">Skills</div>
+                    <div class="skill-grid">
+                        <div class="skill-item"><span id="cv-hard-skill-1" class="editable">Sales Strategy</span></div>
+                        <div class="skill-item"><span id="cv-hard-skill-2" class="editable">CRM Systems</span></div>
+                        <div class="skill-item"><span id="cv-hard-skill-3" class="editable">Lead Generation</span></div>
+                        <div class="skill-item"><span id="cv-hard-skill-4" class="editable">Negotiations</span></div>
+                        <div class="skill-item"><span id="cv-hard-skill-5" class="editable">Market Analysis</span></div>
+                        <div class="skill-item"><span id="cv-soft-skill-1" class="editable">Communication</span></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">Education</div>
+                    <div class="edu-item">
+                        <div class="item-title"><span id="cv-education-1-school" class="editable">Commerce University</span></div>
+                        <div class="item-subtitle"><span id="cv-education-1-degree" class="editable">Bachelor of Business Administration</span></div>
+                        <div class="item-date"><span id="cv-education-1-year" class="editable">2016</span></div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="item-title"><span id="cv-education-2-school" class="editable">Sales Academy</span></div>
+                        <div class="item-subtitle"><span id="cv-education-2-degree" class="editable">Professional Sales Certificate</span></div>
+                        <div class="item-date"><span id="cv-education-2-year" class="editable">2017</span></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">Achievements</div>
+                    <div class="achievement">
+                        <div class="ach-date">2023 – 2024</div>
+                        <div id="cv-achievement-1" class="editable">Achieved 120% of annual sales target for consecutive years.</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="ach-date">2022 – 2023</div>
+                        <div id="cv-achievement-2" class="editable">Increased territory sales by 35% through strategic account management.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section">
+                    <div class="section-header">Professional Experience</div>
+                    <div class="exp-item">
+                        <div class="item-title"><span id="cv-experience-1-title" class="editable">Sales Corp | Senior Sales Representative</span></div>
+                        <div class="item-date"><span id="cv-experience-1-period" class="editable">2021 – Present</span></div>
+                        <div class="resp-list">
+                            <strong>Key responsibilities:</strong>
+                            <ul>
+                                <li><span id="cv-experience-1-resp-1" class="editable">Manage key client accounts and relationships</span></li>
+                                <li><span id="cv-experience-1-resp-2" class="editable">Develop sales strategies for territory growth</span></li>
+                                <li><span id="cv-experience-1-resp-3" class="editable">Conduct product demonstrations and presentations</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="item-title"><span id="cv-experience-2-title" class="editable">Regional Sales Inc | Sales Associate</span></div>
+                        <div class="item-date"><span id="cv-experience-2-period" class="editable">2018 – 2021</span></div>
+                        <div class="resp-list">
+                            <strong>Key responsibilities:</strong>
+                            <ul>
+                                <li><span id="cv-experience-2-resp-1" class="editable">Generated leads through cold calling and networking</span></li>
+                                <li><span id="cv-experience-2-resp-2" class="editable">Maintained customer database and follow-up activities</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

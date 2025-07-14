@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blue Gray Simple CV</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .resume-container { width: 210mm; height: 297mm; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); display: flex; }
+        .left-column { width: 35%; background: #4a5568; color: white; padding: 30px 25px; }
+        .right-column { width: 65%; background: white; padding: 30px 40px; color: #333; }
+        .profile-photo { width: 140px; height: 140px; border-radius: 50%; margin-bottom: 25px; border: 3px solid white; object-fit: cover; background: #ddd; }
+        .name { font-size: 40px; font-weight: bold; color: #4a5568; letter-spacing: 2px; margin-bottom: 8px; }
+        .job-title { font-size: 18px; color: #4a5568; font-weight: 400; }
+        .section-header { font-size: 20px; color: #4a5568; font-weight: bold; margin-bottom: 12px; border-bottom: 2px solid #4a5568; padding-bottom: 3px; }
+        .left-section-header { font-size: 18px; color: white; font-weight: bold; margin-bottom: 12px; margin-top: 25px; border-bottom: 2px solid white; padding-bottom: 4px; }
+        .left-section-header:first-of-type { margin-top: 0; }
+        .contact-item { display: flex; align-items: center; margin-bottom: 15px; font-size: 14px; }
+        .contact-icon { width: 20px; height: 20px; margin-right: 15px; fill: white; }
+        .editable { background: transparent; border: 1px dashed rgba(255,255,255,0.3); padding: 2px; min-height: 1.2em; display: inline-block; width: 100%; }
+        .right-column .editable { border: 1px dashed rgba(74,85,104,0.3); }
+        .skill-list { list-style: none; padding: 0; }
+        .skill-list li { margin-bottom: 8px; font-size: 14px; position: relative; padding-left: 15px; }
+        .skill-list li:before { content: "►"; position: absolute; left: 0; color: white; font-size: 10px; }
+        .about-text { font-size: 14px; line-height: 1.6; margin-bottom: 30px; text-align: justify; }
+        .experience-item { margin-bottom: 30px; }
+        .experience-title { font-size: 16px; font-weight: bold; color: #333; }
+        .experience-period { font-size: 13px; color: #4a5568; font-style: italic; }
+        .experience-responsibilities ul { margin-left: 20px; margin-top: 5px; }
+        .experience-responsibilities li { margin-bottom: 5px; font-size: 13px; line-height: 1.4; }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="left-column">
+            <img id="profile-photo" class="profile-photo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiByeD0iNzAiIGZpbGw9IiNkZGQiLz4KPHN2ZyB4PSI0NSIgeT0iMzAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRIOGE0IDQgMCAwIDAtNCA0djIiPjwvcGF0aD4KPGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT4KPC9zdmc+Cjwvc3ZnPgo=" alt="Profile Photo">
+            
+            <div class="left-section-header">Contact</div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span id="cv-email" class="editable">mike.gray@email.com</span>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span id="cv-phone" class="editable">+1-555-321-6547</span>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span id="cv-address" class="editable">321 Tech Lane, Innovation City</span>
+            </div>
+
+            <div class="left-section-header">Skills</div>
+            <ul class="skill-list">
+                <li><span id="cv-hard-skill-1" class="editable">Project Management</span></li>
+                <li><span id="cv-hard-skill-2" class="editable">Agile & Scrum</span></li>
+                <li><span id="cv-hard-skill-3" class="editable">Team Leadership</span></li>
+                <li><span id="cv-hard-skill-4" class="editable">Strategic Planning</span></li>
+                <li><span id="cv-hard-skill-5" class="editable">Risk Management</span></li>
+            </ul>
+
+            <div class="left-section-header">Education</div>
+            <div style="margin-bottom: 20px;">
+                <div style="font-size: 14px; font-weight: bold; margin-bottom: 5px;"><span id="cv-education-1-school" class="editable">Management Institute</span></div>
+                <div style="font-size: 13px; font-style: italic; margin-bottom: 3px;"><span id="cv-education-1-degree" class="editable">MBA in Management</span></div>
+                <div style="font-size: 12px; color: #ccc;"><span id="cv-education-1-year" class="editable">2017</span></div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div style="text-align: left; margin-bottom: 30px;">
+                <div id="cv-name" class="name editable">MIKE GRAY</div>
+                <div id="cv-job-title" class="job-title editable">Project Manager</div>
+            </div>
+
+            <div class="section-header">About Me</div>
+            <div id="cv-about-me" class="about-text editable">
+                Experienced project manager with 8+ years of leading cross-functional teams and delivering complex projects on time and within budget. Expertise in agile methodologies, stakeholder management, and process optimization. Proven track record of improving team efficiency and project success rates.
+            </div>
+
+            <div class="section-header">Professional Experience</div>
+            <div class="experience-item">
+                <div class="experience-title"><span id="cv-experience-1-title" class="editable">Tech Solutions Inc | Senior Project Manager</span></div>
+                <div class="experience-period"><span id="cv-experience-1-period" class="editable">2020 – Present</span></div>
+                <div class="experience-responsibilities">
+                    <strong>Key responsibilities:</strong>
+                    <ul>
+                        <li><span id="cv-experience-1-resp-1" class="editable">Lead multiple software development projects</span></li>
+                        <li><span id="cv-experience-1-resp-2" class="editable">Coordinate with stakeholders and development teams</span></li>
+                        <li><span id="cv-experience-1-resp-3" class="editable">Implement agile processes and best practices</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title"><span id="cv-experience-2-title" class="editable">Digital Corp | Project Coordinator</span></div>
+                <div class="experience-period"><span id="cv-experience-2-period" class="editable">2018 – 2020</span></div>
+                <div class="experience-responsibilities">
+                    <strong>Key responsibilities:</strong>
+                    <ul>
+                        <li><span id="cv-experience-2-resp-1" class="editable">Coordinated project timelines and resources</span></li>
+                        <li><span id="cv-experience-2-resp-2" class="editable">Managed client communications</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-header">Achievements</div>
+            <div style="margin-bottom: 15px; font-size: 14px;">
+                <span style="font-weight: bold; color: #4a5568; display: inline-block; width: 100px;">2023 – 2024</span>
+                <span id="cv-achievement-1" style="display: inline-block; color: #333;" class="editable">Delivered 95% of projects on time and under budget.</span>
+            </div>
+            <div style="margin-bottom: 15px; font-size: 14px;">
+                <span style="font-weight: bold; color: #4a5568; display: inline-block; width: 100px;">2021 – 2022</span>
+                <span id="cv-achievement-2" style="display: inline-block; color: #333;" class="editable">Improved team productivity by 25% through process optimization.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
