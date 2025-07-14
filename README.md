@@ -201,4 +201,4 @@ For support, please check the documentation or create an issue in the repository
 
 ---
 
-**Built with ❤️ for CVmaker.ai** 
+**Built with ❤️ for CVmaker.ai**
