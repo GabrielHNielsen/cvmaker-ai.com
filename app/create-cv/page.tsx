@@ -1150,7 +1150,7 @@ export default function CreateCV() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Service temporarily disabled
-    alert('🚫 Tjenesten er midlertidigt utilgængelig. CV-generering virker ikke lige nu.')
+    alert('🚫 The service is temporarily unavailable. CV generation is not working right now.')
     return false
   }
 
@@ -1510,21 +1510,21 @@ export default function CreateCV() {
                     <span className="text-red-600 font-bold text-lg">🚫</span>
                   </div>
                   <div>
-                    <h4 className="text-red-800 font-bold text-lg">CV Generator Midlertidigt Utilgængelig</h4>
-                  </div>
-                </div>
-                <div className="bg-white border border-red-200 rounded-lg p-4">
-                  <p className="text-red-700 text-sm mb-3">
-                    <strong>Tjenesten virker ikke lige nu</strong> - Vi arbejder på at løse problemet.
-                  </p>
-                  <div className="space-y-2 text-sm text-red-600">
-                    <p>• CV-generering er midlertidigt deaktiveret</p>
-                    <p>• Vi opdaterer systemet for bedre ydeevne</p>
-                    <p>• Forventet online igen snart</p>
-                  </div>
-                  <div className="mt-4 p-3 bg-red-100 rounded-lg">
-                    <p className="text-red-800 text-sm font-medium">
-                      💡 Tip: Prøv igen om lidt, eller kontakt support hvis problemet fortsætter.
+                                         <h4 className="text-red-800 font-bold text-lg">CV Generator Temporarily Unavailable</h4>
+                   </div>
+                 </div>
+                 <div className="bg-white border border-red-200 rounded-lg p-4">
+                   <p className="text-red-700 text-sm mb-3">
+                     <strong>The service is not working right now</strong> - We're working to fix the issue.
+                   </p>
+                   <div className="space-y-2 text-sm text-red-600">
+                     <p>• CV generation is temporarily disabled</p>
+                     <p>• We're updating the system for better performance</p>
+                     <p>• Expected to be online again soon</p>
+                   </div>
+                   <div className="mt-4 p-3 bg-red-100 rounded-lg">
+                     <p className="text-red-800 text-sm font-medium">
+                       💡 Tip: Try again in a bit, or contact support if the problem persists.
                     </p>
                   </div>
                 </div>
@@ -1536,12 +1536,12 @@ export default function CreateCV() {
                   type="button"
                   disabled={true}
                   className="w-full py-4 px-6 rounded-xl font-semibold text-lg bg-gray-300 text-gray-500 cursor-not-allowed"
-                >
-                  🚫 Tjeneste Utilgængelig
-                </button>
-                <p className="text-sm text-red-500 mt-3 text-center">
-                  CV-generering er midlertidigt deaktiveret for vedligeholdelse
-                </p>
+                                  >
+                    🚫 Service Unavailable
+                  </button>
+                  <p className="text-sm text-red-500 mt-3 text-center">
+                    CV generation is temporarily disabled for maintenance
+                  </p>
               </div>
             </form>
           </div>

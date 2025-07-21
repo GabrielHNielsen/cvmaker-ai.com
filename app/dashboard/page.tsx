@@ -94,27 +94,27 @@ export default function DashboardPage() {
                 <div className="flex items-center space-x-3">
                   <span className="text-red-600 text-xl">🚫</span>
                   <div>
-                    <h4 className="text-red-800 font-bold text-sm">CV Generator Utilgængelig</h4>
-                    <p className="text-red-700 text-sm">Tjenesten virker ikke lige nu - Vi arbejder på at løse problemet</p>
+                                         <h4 className="text-red-800 font-bold text-sm">CV Generator Unavailable</h4>
+                     <p className="text-red-700 text-sm">The service is not working right now - We're working to fix the issue</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  disabled 
-                  className="btn-secondary text-lg px-8 py-4 opacity-50 cursor-not-allowed"
-                  onClick={() => alert('🚫 Tjenesten er midlertidigt utilgængelig')}
-                >
-                  Improve my CV (Utilgængelig)
-                </button>
-                <button 
-                  disabled 
-                  className="btn-primary text-lg px-8 py-4 opacity-50 cursor-not-allowed"
-                  onClick={() => alert('🚫 Tjenesten er midlertidigt utilgængelig')}
-                >
-                  Create new CV (Utilgængelig)
-                </button>
+                                  <button 
+                    disabled 
+                    className="btn-secondary text-lg px-8 py-4 opacity-50 cursor-not-allowed"
+                    onClick={() => alert('🚫 The service is temporarily unavailable')}
+                  >
+                    Improve my CV (Unavailable)
+                  </button>
+                  <button 
+                    disabled 
+                    className="btn-primary text-lg px-8 py-4 opacity-50 cursor-not-allowed"
+                    onClick={() => alert('🚫 The service is temporarily unavailable')}
+                  >
+                    Create new CV (Unavailable)
+                  </button>
               </div>
             </div>
             
@@ -194,13 +194,13 @@ export default function DashboardPage() {
           <p className="text-xl text-teal-100 mb-8">
             Join thousands of professionals who have already created their dream CVs
           </p>
-          <button 
-            disabled 
-            className="bg-gray-300 text-gray-500 px-8 py-4 rounded-lg font-semibold cursor-not-allowed inline-block"
-            onClick={() => alert('🚫 Tjenesten er midlertidigt utilgængelig')}
-          >
-            🚫 Tjeneste Utilgængelig
-          </button>
+                      <button 
+              disabled 
+              className="bg-gray-300 text-gray-500 px-8 py-4 rounded-lg font-semibold cursor-not-allowed inline-block"
+              onClick={() => alert('🚫 The service is temporarily unavailable')}
+            >
+              🚫 Service Unavailable
+            </button>
         </div>
       </section>
     </>
