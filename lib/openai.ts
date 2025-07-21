@@ -1,10 +1,13 @@
 import OpenAI from 'openai';
 
-if (!process.env.OPENAI_API_KEY) {
+// TEMPORARY: Disable OpenAI API to avoid costs
+const AI_DISABLED = true;
+
+if (!AI_DISABLED && !process.env.OPENAI_API_KEY) {
   throw new Error('OPENAI_API_KEY is not set in environment variables');
 }
 
-export const openai = new OpenAI({
+export const openai = AI_DISABLED ? null : new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
@@ -188,6 +191,81 @@ const analyzeTemplate = (htmlTemplate: string) => {
   };
 };
 
+// Dummy CV generation function (no AI/API costs)
+const generateDummyCV = (
+  formData: CVGenerationData, 
+  templateHtml: string, 
+  language: string
+): string => {
+  // Simply replace placeholders in template with user data
+  let dummyCV = templateHtml;
+  
+  // Basic replacements without AI enhancement
+  dummyCV = dummyCV.replace(/\{name\}/g, formData.name || 'Navn ikke angivet');
+  dummyCV = dummyCV.replace(/\{email\}/g, formData.email || 'email@eksempel.dk');
+  dummyCV = dummyCV.replace(/\{phone\}/g, formData.phone || 'Telefon ikke angivet');
+  dummyCV = dummyCV.replace(/\{address\}/g, formData.address || 'Adresse ikke angivet');
+  dummyCV = dummyCV.replace(/\{jobTitle\}/g, formData.jobTitle || 'Jobtitel ikke angivet');
+  dummyCV = dummyCV.replace(/\{aboutMe\}/g, formData.aboutMe || 'Om mig information ikke angivet');
+  
+  // Handle skills
+  const hardSkills = Array.isArray(formData.skills.hard) ? formData.skills.hard.join(', ') : formData.skills.hard || 'Ingen færdigheder angivet';
+  const softSkills = Array.isArray(formData.skills.soft) ? formData.skills.soft.join(', ') : formData.skills.soft || 'Ingen bløde færdigheder angivet';
+  
+  dummyCV = dummyCV.replace(/\{hardSkills\}/g, hardSkills);
+  dummyCV = dummyCV.replace(/\{softSkills\}/g, softSkills);
+  
+  // Handle education
+  if (formData.education && formData.education.length > 0) {
+    const educationHtml = formData.education.map(edu => 
+      `<div class="education-item">
+        <h4>${edu.degree || 'Uddannelse'}</h4>
+        <p><strong>${edu.university || 'Institution'}</strong></p>
+        <p>${edu.courses || 'Kurser ikke angivet'}</p>
+      </div>`
+    ).join('');
+    dummyCV = dummyCV.replace(/\{education\}/g, educationHtml);
+  } else {
+    dummyCV = dummyCV.replace(/\{education\}/g, '<p>Ingen uddannelse angivet</p>');
+  }
+  
+  // Handle experience
+  if (formData.experience && formData.experience.length > 0) {
+    const experienceHtml = formData.experience.map(exp => 
+      `<div class="experience-item">
+        <h4>${exp.jobTitle || 'Jobtitel'}</h4>
+        <p><strong>${exp.company || 'Virksomhed'}</strong></p>
+        <p>${exp.responsibilities || 'Ansvarsområder ikke angivet'}</p>
+      </div>`
+    ).join('');
+    dummyCV = dummyCV.replace(/\{experience\}/g, experienceHtml);
+  } else {
+    dummyCV = dummyCV.replace(/\{experience\}/g, '<p>Ingen erfaring angivet</p>');
+  }
+  
+  // Handle achievements
+  dummyCV = dummyCV.replace(/\{achievements\}/g, formData.achievements || 'Ingen præstationer angivet');
+  
+  // Ensure proper HTML structure
+  if (!dummyCV.includes('<!DOCTYPE html>')) {
+    dummyCV = '<!DOCTYPE html>\n' + dummyCV;
+  }
+  
+  // Add a notice that AI is disabled
+  const aiDisabledNotice = `
+    <!-- AI DISABLED: This is a basic template fill without AI enhancement -->
+    <div style="position: fixed; top: 10px; right: 10px; background: #ff9800; color: white; padding: 5px 10px; border-radius: 5px; font-size: 12px; z-index: 9999;">
+      AI Deaktiveret - Grundlæggende CV
+    </div>
+  `;
+  
+  if (dummyCV.includes('<body>')) {
+    dummyCV = dummyCV.replace('<body>', '<body>' + aiDisabledNotice);
+  }
+  
+  return dummyCV;
+};
+
 // Main CV generation function
 export const generateCVWithAI = async (
   formData: CVGenerationData,
@@ -195,6 +273,13 @@ export const generateCVWithAI = async (
   selectedTemplate: string,
   language: string = 'da'
 ): Promise<string> => {
+  
+  // TEMPORARY: Return dummy CV without using OpenAI API to avoid costs
+  if (AI_DISABLED) {
+    console.log('🚫 AI disabled - returning dummy CV to avoid API costs');
+    return generateDummyCV(formData, templateHtml, language);
+  }
+
   try {
     // Analyze template for better understanding
     const templateAnalysis = analyzeTemplate(templateHtml);
@@ -230,7 +315,11 @@ Generate professional, compelling content that makes this CV stand out.
       }
     ];
 
-    // Call OpenAI API
+    // Call OpenAI API (only if AI is enabled)
+    if (!openai) {
+      throw new Error('OpenAI client not initialized');
+    }
+
     const response = await openai.chat.completions.create({
       model: 'gpt-4o', // Using GPT-4o for now (can switch to gpt-4.1 when available)
       messages,

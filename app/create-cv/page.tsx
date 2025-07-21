@@ -860,8 +860,8 @@ const generateCV = async (formData: any, selectedTemplate: string, language: str
           <body>
             <div class="loader">
               <div class="spinner"></div>
-              <h2>Genererer dit CV med AI...</h2>
-              <p>Dette tager et øjeblik mens vi laver dit professionelle CV.</p>
+              <h2>Genererer dit CV...</h2>
+              <p>⚠️ AI er deaktiveret - Opretter grundlæggende CV uden AI-optimering</p>
             </div>
           </body>
         </html>
@@ -1508,6 +1508,21 @@ export default function CreateCV() {
                 />
               </div>
 
+              {/* AI Disabled Notice */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                    <span className="text-orange-600 font-bold text-sm">⚠️</span>
+                  </div>
+                  <div>
+                    <h4 className="text-orange-800 font-semibold text-sm">AI Midlertidigt Deaktiveret</h4>
+                    <p className="text-orange-700 text-sm mt-1">
+                      AI-forbedring er deaktiveret for at undgå API-omkostninger. Du får et grundlæggende CV uden AI-optimering.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Generate Button */}
               <div className="pt-8 border-t border-gray-200">
                 <button
@@ -1515,11 +1530,11 @@ export default function CreateCV() {
                   disabled={!isFormValid}
                   className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all ${
                     isFormValid
-                      ? 'bg-gradient-to-r from-teal-500 to-cyan-600 text-white hover:from-teal-600 hover:to-cyan-700 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                      ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 shadow-lg hover:shadow-xl'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >
-                  {t.generateCV}
+                  {t.generateCV} (Uden AI)
                 </button>
                 {!isFormValid && (
                   <p className="text-sm text-red-500 mt-3 text-center">

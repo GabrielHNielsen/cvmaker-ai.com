@@ -27,9 +27,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Step 1: Generate AI-enhanced content using OpenAI
-    console.log('🤖 Generating AI-enhanced CV content...');
-    const aiEnhancedContent = await generateCVWithAI(formData, '', '', language);
+    // Step 1: Generate AI-enhanced content using OpenAI (DISABLED - avoiding API costs)
+    console.log('🚫 AI disabled - skipping OpenAI content generation to avoid costs');
+    const aiEnhancedContent = `Dummy content - AI disabled to avoid API costs. User data: ${formData.name}, ${formData.email}, ${formData.jobTitle}`;
     
     // Parse AI response to extract structured data
     const enhancedData = parseAIResponseToStructuredData(aiEnhancedContent, formData);
