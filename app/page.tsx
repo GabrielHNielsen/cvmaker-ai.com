@@ -79,13 +79,32 @@ export default function HomePage() {
               <p className="text-xl text-gray-600 mb-8 max-w-2xl">
                 Build a polished, recruiter-approved CV that gets noticed, tailored by AI to boost your chances and fast-track your job search.
               </p>
+              {/* Service Unavailable Notice */}
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 max-w-2xl">
+                <div className="flex items-center space-x-3">
+                  <span className="text-red-600 text-xl">🚫</span>
+                  <div>
+                    <h4 className="text-red-800 font-bold text-sm">CV Generator Midlertidigt Utilgængelig</h4>
+                    <p className="text-red-700 text-sm">Tjenesten virker ikke lige nu - Vi arbejder på at løse problemet</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/signup" className="btn-secondary text-lg px-8 py-4">
-                  Improve my CV
-                </Link>
-                <Link href="/signup" className="btn-primary text-lg px-8 py-4 shimmer">
-                  Create new CV
-                </Link>
+                <button 
+                  disabled 
+                  className="btn-secondary text-lg px-8 py-4 opacity-50 cursor-not-allowed"
+                  onClick={() => alert('🚫 Tjenesten er midlertidigt utilgængelig')}
+                >
+                  Improve my CV (Utilgængelig)
+                </button>
+                <button 
+                  disabled 
+                  className="btn-primary text-lg px-8 py-4 opacity-50 cursor-not-allowed"
+                  onClick={() => alert('🚫 Tjenesten er midlertidigt utilgængelig')}
+                >
+                  Create new CV (Utilgængelig)
+                </button>
               </div>
             </div>
             
@@ -165,9 +184,13 @@ export default function HomePage() {
           <p className="text-xl text-teal-100 mb-8">
             Join thousands of professionals who have already created their dream CVs
           </p>
-          <Link href="/signup" className="bg-white text-teal-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block">
-            Start Building Your CV
-          </Link>
+          <button 
+            disabled 
+            className="bg-gray-300 text-gray-500 px-8 py-4 rounded-lg font-semibold cursor-not-allowed inline-block"
+            onClick={() => alert('🚫 Tjenesten er midlertidigt utilgængelig')}
+          >
+            🚫 Tjeneste Utilgængelig
+          </button>
         </div>
       </section>
     </>

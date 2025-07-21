@@ -1149,14 +1149,9 @@ export default function CreateCV() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (isFormValid) {
-      const cvData = {
-        ...formData,
-        hardSkills: formData.skills.hard,
-        profilePhoto: profilePhoto
-      }
-      await generateCV(cvData, selectedTemplate, selectedLanguage.value)
-    }
+    // Service temporarily disabled
+    alert('🚫 Tjenesten er midlertidigt utilgængelig. CV-generering virker ikke lige nu.')
+    return false
   }
 
   return (
@@ -1508,39 +1503,45 @@ export default function CreateCV() {
                 />
               </div>
 
-              {/* AI Disabled Notice */}
-              <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                    <span className="text-orange-600 font-bold text-sm">⚠️</span>
+              {/* Service Temporarily Unavailable Notice */}
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                    <span className="text-red-600 font-bold text-lg">🚫</span>
                   </div>
                   <div>
-                    <h4 className="text-orange-800 font-semibold text-sm">AI Midlertidigt Deaktiveret</h4>
-                    <p className="text-orange-700 text-sm mt-1">
-                      AI-forbedring er deaktiveret for at undgå API-omkostninger. Du får et grundlæggende CV uden AI-optimering.
+                    <h4 className="text-red-800 font-bold text-lg">CV Generator Midlertidigt Utilgængelig</h4>
+                  </div>
+                </div>
+                <div className="bg-white border border-red-200 rounded-lg p-4">
+                  <p className="text-red-700 text-sm mb-3">
+                    <strong>Tjenesten virker ikke lige nu</strong> - Vi arbejder på at løse problemet.
+                  </p>
+                  <div className="space-y-2 text-sm text-red-600">
+                    <p>• CV-generering er midlertidigt deaktiveret</p>
+                    <p>• Vi opdaterer systemet for bedre ydeevne</p>
+                    <p>• Forventet online igen snart</p>
+                  </div>
+                  <div className="mt-4 p-3 bg-red-100 rounded-lg">
+                    <p className="text-red-800 text-sm font-medium">
+                      💡 Tip: Prøv igen om lidt, eller kontakt support hvis problemet fortsætter.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Generate Button */}
+              {/* Disabled Generate Button */}
               <div className="pt-8 border-t border-gray-200">
                 <button
-                  type="submit"
-                  disabled={!isFormValid}
-                  className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all ${
-                    isFormValid
-                      ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 shadow-lg hover:shadow-xl'
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  }`}
+                  type="button"
+                  disabled={true}
+                  className="w-full py-4 px-6 rounded-xl font-semibold text-lg bg-gray-300 text-gray-500 cursor-not-allowed"
                 >
-                  {t.generateCV} (Uden AI)
+                  🚫 Tjeneste Utilgængelig
                 </button>
-                {!isFormValid && (
-                  <p className="text-sm text-red-500 mt-3 text-center">
-                    {t.validationMessage}
-                  </p>
-                )}
+                <p className="text-sm text-red-500 mt-3 text-center">
+                  CV-generering er midlertidigt deaktiveret for vedligeholdelse
+                </p>
               </div>
             </form>
           </div>
